@@ -27,5 +27,5 @@
             "Pminnieur\\SpritesBundle": ""
         }
     },
-    "target-dir": "Pminnieur\\SpritesBundle"
+    "target-dir": "Pminnieur/SpritesBundle"
 }
