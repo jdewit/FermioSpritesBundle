@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,10 +9,10 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle\DependencyInjection;
+namespace Fermio\Bundle\SpritesBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\TreeBuilder,
-    Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * This class contains the configuration information for the bundle
@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('pminnieur_sprites', 'array');
+        $rootNode = $treeBuilder->root('fermio_sprites', 'array');
 
         $rootNode
             ->fixXmlConfig('default', 'defaults')
@@ -59,7 +59,7 @@ class Configuration implements ConfigurationInterface
                         ->children()
                             ->scalarNode('dynamic')->end()
                             ->scalarNode('processor')->end()
-                            ->scalarNode('imagine')->defaultValue('pminnieur_sprites.imagine')->end()
+                            ->scalarNode('imagine')->defaultValue('fermio_sprites.imagine')->end()
                             ->arrayNode('sources')
                                 ->beforeNormalization()
                                     ->ifString()

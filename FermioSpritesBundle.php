@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,10 +9,10 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle;
+namespace Fermio\Bundle\SpritesBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PminnieurSpritesBundle extends Bundle
+class FermioSpritesBundle extends Bundle
 {
 }

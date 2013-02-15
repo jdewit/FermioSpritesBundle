@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,20 +9,19 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle\Provider;
+namespace Fermio\Bundle\SpritesBundle\Provider;
 
-use Symfony\Component\Config\Definition\Processor,
-    Symfony\Component\Config\FileLocator,
-    Symfony\Component\HttpKernel\DependencyInjection\Extension,
-    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
-    Symfony\Component\DependencyInjection\ContainerBuilder,
-    Symfony\Component\DependencyInjection\Reference,
-    Symfony\Component\DependencyInjection\DefinitionDecorator;
-
-use Symfony\Component\Console\Input\InputInterface;
-use Sprites\Configuration;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Fermio\Sprites\Configuration;
 use Imagine\Image\Color;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\DefinitionDecorator;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
  * A service to get sprites configuration objects from

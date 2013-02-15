@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,7 +9,7 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle\Command;
+namespace Fermio\Bundle\SpritesBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -30,7 +30,7 @@ class GenerateSpritesCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('sprites:generate')
+            ->setName('fermio:sprites:generate')
             ->addArgument('configuration', InputOption::VALUE_OPTIONAL, 'The configuration name to generate sprites from.')
             ->setDescription('Generate an image sprite and CSS stylesheet from configuration settings.')
             ->setHelp(<<<EOT

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,9 +9,9 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle\Command;
+namespace Fermio\Bundle\SpritesBundle\Command;
 
-use Sprites\Command\GenerateFixedSpritesCommand as BaseCommand;
+use Fermio\Sprites\Command\GenerateFixedSpritesCommand as BaseCommand;
 
 class GenerateFixedSpritesCommand extends BaseCommand
 {
@@ -23,7 +23,7 @@ class GenerateFixedSpritesCommand extends BaseCommand
         parent::configure();
 
         $this
-            ->setName('sprites:generate:fixed')
+            ->setName('fermio:sprites:generate:fixed')
             ->setDescription('Generate an image sprite and CSS stylesheet with a fixed width dimension using command line arguments.')
         ;
     }

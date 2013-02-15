@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the SpritesBundle package.
+ * This file is part of the FermioSpritesBundle package.
  *
  * (c) Pierre Minnieur <pm@pierre-minnieur.de>
  *
@@ -9,23 +9,22 @@
  * that was distributed with this source code.
  */
 
-namespace Pminnieur\SpritesBundle\DependencyInjection;
+namespace Fermio\Bundle\SpritesBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Processor,
-    Symfony\Component\Config\FileLocator,
-    Symfony\Component\HttpKernel\DependencyInjection\Extension,
-    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
-    Symfony\Component\DependencyInjection\ContainerBuilder;
-
-use Sprites\Command\GenerateSpritesCommand;
+use Fermio\Sprites\Command\GenerateSpritesCommand;
 use Imagine\Image\Color;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Prepare the services for the SpritesBundle
  *
  * @author David Buchmann <mail@davidbu.ch>
  */
-class PminnieurSpritesExtension extends Extension
+class FermioSpritesExtension extends Extension
 {
     /**
      * Loads the services based on your application configuration.
@@ -52,13 +51,13 @@ class PminnieurSpritesExtension extends Extension
                 // shortcut to have dynamic instead of explicit processor service name
                 if (isset($spriteset['dynamic'])) {
                     $spriteset['processor'] = $spriteset['dynamic'] ?
-                        'pminnieur_sprites.dynamic_processor' :
-                        'pminnieur_sprites.fixed_processor';
+                        'fermio_sprites.dynamic_processor' :
+                        'fermio_sprites.fixed_processor';
                     unset($spriteset['dynamic']);
                 }
                 // default to dynamic if nothing is set
                 if (! isset($spriteset['processor'])) {
-                    $spriteset['processor'] = 'pminnieur_sprites.dynamic_processor';
+                    $spriteset['processor'] = 'fermio_sprites.dynamic_processor';
                 }
 
                 $spritesets[$name] = array_merge($config['defaults'], $spriteset);
