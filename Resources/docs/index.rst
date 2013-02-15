@@ -28,7 +28,7 @@ Add the following entry to your ``composer.json``:
 
 .. code-block:: json
 
-    { "require": { "pminnieur/sprites-bundle": "dev-master" }}
+    { "require": { "fermio/sprites-bundle": "dev-master" }}
 
 Checkout `detailed package information on Packagist`_.
 
@@ -39,7 +39,7 @@ Clone Sprites git repository:
 
 .. code-block:: console
 
-    git clone git://github.com/pminnieur/SpritesBundle.git
+    git clone git://github.com/fermio/FermioSpritesBundle.git
 
 Download ``composer.phar`` file and install dependencies:
 
@@ -60,7 +60,7 @@ Add the bundle to your application kernel:
     {
       return array(
           // ...
-          new \Pminnieur\SpritesBundle\PminnieurSpritesBundle(),
+          new \Fermio\Bundle\SpritesBundle\FermioSpritesBundle(),
           // ...
       );
     }
@@ -102,16 +102,16 @@ Assuming one of your sprites is called logo and has size 336 x 63 pixels, you wo
 
 This bundle adds 3 commands to your app/console.
 
-- **sprites:generate**: Generate an image sprite and CSS stylesheet from
+- **fermio:sprites:generate**: Generate an image sprite and CSS stylesheet from
     configuration settings.
-- **sprites:generate:dynamic**: Generate an image sprite and CSS stylesheet
+- **fermio:sprites:generate:dynamic**: Generate an image sprite and CSS stylesheet
     with dynamic dimensions using command line arguments.
-- **sprites:generate:fixed**: Generate an image sprite and CSS stylesheet with
+- **fermio:sprites:generate:fixed**: Generate an image sprite and CSS stylesheet with
     a fixed width dimension using command line arguments.
 
-``sprites:generate`` is the recommended way and allows you to customize more
-things than the other commands. See the configuration_ section for details on
-how to configure the spritesets to generate.
+``fermio:sprites:generate`` is the recommended way and allows you to customize
+more things than the other commands. See the configuration_ section for details
+on how to configure the spritesets to generate.
 
 To use the other commands, run them with --help to get an explanation of the
 arguments and options.
@@ -127,7 +127,7 @@ The configuration fragment for the sprites bundle looks like this:
 
 .. code-block:: yml
 
-    pminnieur_sprites:
+    fermio_sprites:
         # defaults apply to all spritesets
         defaults:
 
@@ -147,7 +147,7 @@ The configuration fragment for the sprites bundle looks like this:
             pattern: "*.png"
 
             # CSS fragment for each image, see http://sprites.readthedocs.org/en/latest/#selector-optional
-            selector: ".{{filename}}{background-position:{{pointer}}px 0px}"
+            selector: ".{{filename}}{background-position:{{x}}px {{y}}px}"
 
         spritesets:
             # the names you use here are the configuration names for sprites:generate
@@ -161,7 +161,7 @@ The configuration fragment for the sprites bundle looks like this:
 
                 # the imagine service to use, defaults to the trivial service provided by the SpritesBundle
                 # see also the "driver" default option
-                imagine: pminnieur_sprites.imagine
+                imagine: fermio_sprites.imagine
 
                 # either a directory name or a list of directory names to load the sprites from. required
                 sources: "%kernel.root_dir%/../src/Organization/Bundle/CoreBundle/Resources/sprites/"
@@ -188,7 +188,7 @@ The configuration fragment for the sprites bundle looks like this:
                 pattern: "*.gif"
 
                 # overwrite the default selector
-                selector: ".{{filename}}-sprite{background-position:{{pointer}}px 0px}"
+                selector: ".{{filename}}-sprite{background-position:{{x}}px {{y}}px}"
 
                 # whether to resize sprite images. only allowed with the fixed processor
                 resize: true | false
@@ -208,9 +208,9 @@ For in-depth customization, have a look at the documentation of Sprites_.
 Processor services
 ~~~~~~~~~~~~~~~~~~
 
-The services ``pminnieur_sprites.dynamic_processor`` and
-``pminnieur_sprites.fixed_processor`` expose the corresponding
-``Sprites\Processor\ProcessorInterface``. If needed, you can add your own
+The services ``fermio_sprites.dynamic_processor`` and
+``fermio_sprites.fixed_processor`` expose the corresponding
+``Fermio\Sprites\Processor\ProcessorInterface``. If needed, you can add your own
 processor services and define a ``processor`` configuration option.
 
 The services are defined with ``prototype`` scope to avoid problems with
@@ -219,13 +219,13 @@ setting options on them.
 Configuration service
 ~~~~~~~~~~~~~~~~~~~~~
 
-The ``pminnieur_sprites.configuration_provider`` service provides the
-``Sprites\Configuration`` instances for the configured spritesets.
+The ``fermio_sprites.configuration_provider`` service provides the
+``Fermio\Sprites\Configuration`` instances for the configured spritesets.
 
 Imagine service
 ~~~~~~~~~~~~~~~
 
-The sprites bundle provides a trivial ``pminnieur_sprites.imagine`` service
+The sprites bundle provides a trivial ``fermio_sprites.imagine`` service
 with the Imagine object. If defined, it uses the ``driver`` default option
 to select the image library, otherwise it determines what library is installed.
 
@@ -235,6 +235,6 @@ to point to an imagine service you set up as needed. Have a look at
 `AvalancheImagineBundle<https://github.com/avalanche123/AvalancheImagineBundle/>`_.
 
 
-.. _`Sprites`: https://github.com/pminnieur/sprites
+.. _`Sprites`: https://github.com/fermio/Sprites
 .. _`Symfony`: http://symfony.com/
-.. _`detailed package information on Packagist`: http://packagist.org/packages/pminnieur/sprites-bundle
+.. _`detailed package information on Packagist`: http://packagist.org/packages/fermio/sprites-bundle
