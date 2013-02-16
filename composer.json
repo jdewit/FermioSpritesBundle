@@ -15,7 +15,7 @@
     }],
     "require": {
         "php": "~5.3",
-        "fermio/sprites": "dev-master",
+        "fermio/sprites": "0.3.*@dev",
         "symfony/framework-bundle": "~2.0"
     },
     "replace": {
@@ -26,5 +26,10 @@
             "Fermio\\Bundle\\SpritesBundle\\": ""
         }
     },
-    "target-dir": "Fermio/Bundle/SpritesBundle"
+    "target-dir": "Fermio/Bundle/SpritesBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
