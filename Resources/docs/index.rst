@@ -28,7 +28,7 @@ Add the following entry to your ``composer.json``:
 
 .. code-block:: json
 
-    { "require": { "fermio/sprites-bundle": "dev-master" }}
+    { "require": { "fermio/sprites-bundle": "1.0.*@dev" }}
 
 Checkout `detailed package information on Packagist`_.
 
