@@ -50,7 +50,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $provider = $this->getApplication()->getKernel()->getContainer()->get('pminnieur_sprites.configuration_provider');
+        $provider = $this->getApplication()->getKernel()->getContainer()->get('fermio_sprites.configuration_provider');
 
         $configurations = $input->getArgument('configuration');
         if (! count($configurations)) {
