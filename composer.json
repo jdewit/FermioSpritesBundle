@@ -15,7 +15,7 @@
     }],
     "require": {
         "php": "~5.3",
-        "fermio/sprites": "0.3.*@dev",
+        "fermio/sprites": "dev-master",
         "symfony/framework-bundle": "~2.0"
     },
     "replace": {
